@@ -18,7 +18,7 @@ const List<double> testGraph = [
   60,
   33,
   70,
-  54
+  54,
 ];
 
 const testHeatmap = [
@@ -193,5 +193,5 @@ const testHeatmap = [
   [2022, 12, 25],
   [2022, 12, 26],
   [2022, 12, 28],
-  [2022, 12, 29]
+  [2022, 12, 29],
 ];

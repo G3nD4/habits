@@ -11,8 +11,8 @@ class ReminderRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [ToggleRow(), SizedBox(height: 20), TimeRow()],
+    return const Column(
+      children: [ToggleRow(), SizedBox(height: 20), TimeRow()],
     );
   }
 }

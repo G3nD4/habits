@@ -41,14 +41,15 @@ class Habit {
 
   late String localTime;
 
-  Habit(
-      {required this.name,
-      required this.color,
-      required this.frequency,
-      required this.reminder,
-      required this.reminderText,
-      required this.time,
-      required this.id}) {
+  Habit({
+    required this.name,
+    required this.color,
+    required this.frequency,
+    required this.reminder,
+    required this.reminderText,
+    required this.time,
+    required this.id,
+  }) {
     localFrequency = frequency;
     localReminder = reminder;
     localTime = time;

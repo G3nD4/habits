@@ -21,7 +21,7 @@ class HabitList extends ChangeNotifier {
     }
   }
 
-  List<Habit> get getHabits => (_habits);
+  List<Habit> get getHabits => _habits;
 
   set controller(controller) => (newHabit.controller = controller);
 

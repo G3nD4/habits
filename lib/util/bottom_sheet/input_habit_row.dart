@@ -10,13 +10,15 @@ class InputHabitRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HabitList>(builder: (context, habitList, child) {
-      habitList.controller = myController;
-      return MyTextField(
-        myController: myController,
-        placeholder: 'Title',
-        enabled: true,
-      );
-    });
+    return Consumer<HabitList>(
+      builder: (context, habitList, child) {
+        habitList.controller = myController;
+        return MyTextField(
+          myController: myController,
+          placeholder: 'Title',
+          enabled: true,
+        );
+      },
+    );
   }
 }

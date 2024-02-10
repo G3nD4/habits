@@ -10,31 +10,33 @@ class ChangeHabitFrequency extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HabitList>(builder: (context, habitList, previousValue) {
-      return AlertDialog(
-        title: const Center(child: Text('Change frequency')),
-        content: ButtonsRow(habit),
-        actionsAlignment: MainAxisAlignment.spaceAround,
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              habit.localFrequency = habit.frequency;
-              Navigator.pop(context, 'Cancel');
-            },
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              habit.frequency = habit.localFrequency;
-              habitList.saveData();
-              Navigator.pop(context, 'OK');
-              Navigator.pop(context);
-            },
-            child: const Text('OK'),
-          ),
-        ],
-      );
-    });
+    return Consumer<HabitList>(
+      builder: (context, habitList, previousValue) {
+        return AlertDialog(
+          title: const Center(child: Text('Change frequency')),
+          content: ButtonsRow(habit),
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                habit.localFrequency = habit.frequency;
+                Navigator.pop(context, 'Cancel');
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                habit.frequency = habit.localFrequency;
+                habitList.saveData();
+                Navigator.pop(context, 'OK');
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
@@ -61,31 +63,35 @@ class _ButtonsRowState extends State<ButtonsRow> {
           decoration: boxDecoration,
           margin: const EdgeInsets.only(right: 15),
           child: IconButton(
-              onPressed: () {
-                setState(() {
-                  widget.habit.localFrequency > 1
-                      ? widget.habit.localFrequency -= 1
-                      : widget.habit.localFrequency;
-                });
-              },
-              icon: const Icon(Icons.remove)),
+            onPressed: () {
+              setState(() {
+                widget.habit.localFrequency > 1
+                    ? widget.habit.localFrequency -= 1
+                    : widget.habit.localFrequency;
+              });
+            },
+            icon: const Icon(Icons.remove),
+          ),
         ),
-        Text(widget.habit.localFrequency.toString(),
-            style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          widget.habit.localFrequency.toString(),
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         Container(
           width: 45,
           height: 45,
           decoration: boxDecoration,
           margin: const EdgeInsets.only(left: 15),
           child: IconButton(
-              onPressed: () {
-                setState(() {
-                  widget.habit.localFrequency < 7
-                      ? widget.habit.localFrequency++
-                      : widget.habit.localFrequency;
-                });
-              },
-              icon: const Icon(Icons.add)),
+            onPressed: () {
+              setState(() {
+                widget.habit.localFrequency < 7
+                    ? widget.habit.localFrequency++
+                    : widget.habit.localFrequency;
+              });
+            },
+            icon: const Icon(Icons.add),
+          ),
         )
       ],
     );

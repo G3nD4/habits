@@ -12,32 +12,34 @@ class ChangeHabitName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HabitList>(builder: (context, habitList, previousValue) {
-      return AlertDialog(
-        title: const Text('Enter new name'),
-        content: MyTextField(
-            enabled: true,
-            placeholder: 'Enter new name',
-            myController: myController),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, 'Cancel'),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              if (myController.text != '') {
-                habit.name = myController.text;
-                habitList.updateReminder();
-                habitList.saveData();
-                Navigator.pop(context, 'OK');
-                Navigator.pop(context);
-              }
-            },
-            child: const Text('OK'),
-          ),
-        ],
-      );
-    });
+    return Consumer<HabitList>(
+      builder: (context, habitList, previousValue) {
+        return AlertDialog(
+          title: const Text('Enter new name'),
+          content: MyTextField(
+              enabled: true,
+              placeholder: 'Enter new name',
+              myController: myController),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                if (myController.text != '') {
+                  habit.name = myController.text;
+                  habitList.updateReminder();
+                  habitList.saveData();
+                  Navigator.pop(context, 'OK');
+                  Navigator.pop(context);
+                }
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

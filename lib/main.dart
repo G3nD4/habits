@@ -13,10 +13,12 @@ void main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(HabitAdapter());
-  Box box = await Hive.openBox('box');
+  await Hive.openBox('box');
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => HabitList(),
-    child: const MyApp(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => HabitList(),
+      child: const MyApp(),
+    ),
+  );
 }
